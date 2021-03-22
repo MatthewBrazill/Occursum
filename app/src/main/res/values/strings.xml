@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Occursum</string>
+
+    <string name="add_contact_first_name">First Name</string>
+    <string name="add_contact_first_name_hint">The contacts first name.</string>
+    <string name="add_contact_last_name">Last Name</string>
+    <string name="add_contact_last_name_hint">The contacts first name.</string>
+    <string name="add_contact_email">E-Mail</string>
+    <string name="add_contact_email_hint">E-Mail</string>
+    <string name="add_contact_job_title">Job Title</string>
+    <string name="add_contact_job_title_hint">E-Mail</string>
+    <string name="add_contact_button">Create Contact</string>
 </resources>
