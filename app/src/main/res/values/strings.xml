@@ -10,6 +10,6 @@
 
     <string name="main_menu_heading">Your Contacts</string>
     <string name="main_menu_contact_image_description">Image of the contact.</string>
-    <string name="main_menu_contact_likes">Good Ice-Breakers:</string>
-    <string name="main_menu_contact_dislikes">Mood Killers:</string>
+    <string name="main_menu_contact_likes">Good Topics:</string>
+    <string name="main_menu_contact_dislikes">Bad Topics:</string>
 </resources>
