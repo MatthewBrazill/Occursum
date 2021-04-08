@@ -1,15 +1,26 @@
 <resources>
     <string name="app_name">Occursum</string>
 
-    <string name="add_contact_first_name">First Name</string>
-    <string name="add_contact_last_name">Last Name</string>
-    <string name="add_contact_email">E-Mail</string>
-    <string name="add_contact_job_title">Job Title</string>
-    <string name="add_contact_phone_number">Phone Number</string>
-    <string name="add_contact_button">Create Contact</string>
-
+    <!-- Main Menu Strings -->
     <string name="main_menu_heading">Your Contacts</string>
-    <string name="main_menu_contact_image_description">Image of the contact.</string>
-    <string name="main_menu_contact_likes">Good Topics:</string>
-    <string name="main_menu_contact_dislikes">Bad Topics:</string>
+
+    <!-- Contact Card Strings -->
+    <string name="contact_card_likes">Good Topics:</string>
+    <string name="contact_card_dislikes">Bad Topics:</string>
+
+    <!-- New Contact Strings -->
+    <string name="new_contact_title">New Contact</string>
+    <string name="new_contact_first_name">First Name</string>
+    <string name="new_contact_last_name">Last Name</string>
+    <string name="new_contact_email">E-Mail</string>
+    <string name="new_contact_job_title">Job Title</string>
+    <string name="new_contact_phone_number">Phone Number</string>
+    <string name="new_contact_add_topic">Add Topic</string>
+    <string name="new_contact_like_topic">Add Good Conversation Topic</string>
+    <string name="new_contact_dislike_topic">Add Bad Conversation Topic</string>
+    <string name="new_contact_add_button">Create Contact</string>
+
+    <!-- Accessibility Strings -->
+    <string name="add_button_description">Button to add a new contact.</string>
+    <string name="contact_image_description">Image of the contact.</string>
 </resources>

@@ -3,6 +3,7 @@
     <!-- General Colours -->
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
+    <color name="transparent">#00000000</color>
     <color name="blue">#78B9FF</color>
     <color name="green">#78FF78</color>
 
@@ -16,9 +17,11 @@
     <color name="dark_text">#FFFFFF</color>
     <color name="dark_primary">#202020</color>
     <color name="dark_secondary">#DCDCDC</color>
+    <color name="dark_tertiary">#464646</color>
 
     <!-- Light Theme Colours -->
     <color name="light_text">#000000</color>
     <color name="light_primary">#DCDCDC</color>
     <color name="light_secondary">#202020</color>
+    <color name="light_tertiary">#828282</color>
 </resources>

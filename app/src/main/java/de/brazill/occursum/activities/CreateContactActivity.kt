@@ -22,8 +22,18 @@ class CreateContactActivity: AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_create_contact)
         app = application as MainApp
 
+        new_contact_add_good_topic_info.setOnClickListener {
+            toast("Use this field to add conversation topics to the list of good ice-breakers and small talk topics. You can use them to help remember what is and isn't safe to talk about with them.")
+        }
+
+        new_contact_add_bad_topic_info.setOnClickListener {
+            toast("Use this field to add conversation topics to the list of bad ice-breakers and small talk topics. You can use them to help remember what is and isn't safe to talk about with them.")
+        }
+
         //Create a event handler to handle the 'Create Contact' button
-        create_contact_button.setOnClickListener() {
+        new_contact_create_button.setOnClickListener {
+            contact = ContactModel()
+
             contact.firstName = first_name.text.toString()
             contact.lastName = last_name.text.toString()
             contact.email = email.text.toString()
@@ -35,6 +45,9 @@ class CreateContactActivity: AppCompatActivity(), AnkoLogger {
             } else {
                 toast("Please complete all the fields.")
             }
+
+            setResult(AppCompatActivity.RESULT_OK)
+            finish()
         }
     }
 }
