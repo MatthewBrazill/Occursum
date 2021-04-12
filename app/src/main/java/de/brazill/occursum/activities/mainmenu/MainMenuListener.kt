@@ -1,0 +1,7 @@
+package de.brazill.occursum.activities.mainmenu
+
+import de.brazill.occursum.models.ContactModel
+
+interface MainMenuListener {
+    fun onCardClick(contact: ContactModel)
+}

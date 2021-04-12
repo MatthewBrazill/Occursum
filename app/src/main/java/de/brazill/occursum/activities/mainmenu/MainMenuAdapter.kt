@@ -1,4 +1,4 @@
-package de.brazill.occursum.activities
+package de.brazill.occursum.activities.mainmenu
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,9 @@ import de.brazill.occursum.R
 import de.brazill.occursum.models.ContactModel
 import kotlinx.android.synthetic.main.contact_card.view.*
 
-class MainMenuAdapter constructor(private var contacts: List<ContactModel>) : RecyclerView.Adapter<MainMenuAdapter.MainHolder>() {
+class MainMenuAdapter constructor(
+        private var contacts: List<ContactModel>,
+        private val listener: MainMenuListener) : RecyclerView.Adapter<MainMenuAdapter.MainHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
                 LayoutInflater.from(parent.context).inflate(
@@ -21,13 +23,13 @@ class MainMenuAdapter constructor(private var contacts: List<ContactModel>) : Re
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val contact = contacts[holder.adapterPosition]
-        holder.bind(contact)
+        holder.bind(contact, listener)
     }
 
     override fun getItemCount(): Int = contacts.size
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(contact: ContactModel) {
+        fun bind(contact: ContactModel, listener: MainMenuListener) {
             //Merge the names before assignment.
             val fullName = contact.firstName + " " + contact.lastName
             itemView.contact_card_name.text = fullName
@@ -45,6 +47,9 @@ class MainMenuAdapter constructor(private var contacts: List<ContactModel>) : Re
             var dislikes = ""
             for (dislike in contact.dislikes) dislikes += "- $dislike\n"
             itemView.contact_card_dislikes_list.text = dislikes
+
+            //Set the listener for clicking on the card
+            itemView.setOnClickListener { listener.onCardClick(contact) }
         }
     }
 }

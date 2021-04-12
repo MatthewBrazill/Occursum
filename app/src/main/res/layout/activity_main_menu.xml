@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/menu_title"
+        android:id="@+id/main_menu_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_menu_heading"
+        android:text="@string/main_menu_title"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,34 +20,34 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:background="@color/transparent"
-        android:contentDescription="@string/add_button_description"
+        android:contentDescription="@string/add_contact_button_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
     <SearchView
-        android:id="@+id/searchbar"
+        android:id="@+id/main_menu_searchbar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:background="@color/dark_tertiary"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/contact_cards"
+        app:layout_constraintBottom_toTopOf="@+id/contact_cards_recycler"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/menu_title"
+        app:layout_constraintTop_toBottomOf="@+id/main_menu_title"
         app:layout_constraintVertical_bias="0.0">
 
     </SearchView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/contact_cards"
+        android:id="@+id/contact_cards_recycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchbar" />
+        app:layout_constraintTop_toBottomOf="@+id/main_menu_searchbar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

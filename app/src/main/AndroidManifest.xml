@@ -10,13 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Occursum"
         android:name="de.brazill.occursum.main.MainApp">
-        <activity android:name=".activities.MainMenuActivity">
+        <activity android:name=".activities.mainmenu.MainMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.CreateContactActivity" />
+        <activity android:name=".activities.ViewContactActivity" />
+        <activity android:name=".activities.editcontact.EditContactActivity" />
     </application>
 
 </manifest>
