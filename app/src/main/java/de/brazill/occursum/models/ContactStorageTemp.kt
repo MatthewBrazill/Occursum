@@ -27,7 +27,6 @@ class ContactStorageTemp: ContactInterface, AnkoLogger {
 
     override fun update(contact: ContactModel): Boolean {
         for (i in contacts.indices) {
-            info("${contacts.indices}: ${contacts[i].id}, ${contact.id}, ${contacts[i].id == contact.id}")
             if (contacts[i].id == contact.id) {
                 contacts[i] = contact
                 return true

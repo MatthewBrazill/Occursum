@@ -2,18 +2,23 @@ package de.brazill.occursum.main
 
 import android.app.Application
 import de.brazill.occursum.R
+import de.brazill.occursum.models.ContactInterface
 import de.brazill.occursum.models.ContactModel
+import de.brazill.occursum.models.ContactStorageJson
 import de.brazill.occursum.models.ContactStorageTemp
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
 class MainApp: Application(), AnkoLogger {
 
-    val contacts = ContactStorageTemp()
+    lateinit var contacts: ContactInterface
 
     override fun onCreate() {
         super.onCreate()
         info("Main App Started...")
+
+        //contacts = ContactStorageTemp()
+        contacts = ContactStorageJson(applicationContext)
 
         contacts.create(ContactModel("John", "Smith", "john@smith.com", "+353 83 549 7628", mutableListOf("Food", "Wine", "Cars"), mutableListOf("Mushrooms", "Bees"), R.drawable.ic_example_avatar_one))
         contacts.create(ContactModel("Damien", "Colley", "dcolley1@shutterfly.com", "+237 540 772 8911", mutableListOf("Food", "Wine", "Cars"), mutableListOf("Mushrooms", "Bees"), R.drawable.ic_example_avatar_two))
