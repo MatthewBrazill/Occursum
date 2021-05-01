@@ -141,26 +141,41 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/likes_list_recycler"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edit_contact_save_button"
         app:layout_constraintEnd_toStartOf="@+id/dislikes_list_recycler"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_contact_add_like" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_contact_add_like"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dislikes_list_recycler"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/edit_contact_save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/likes_list_recycler"
         app:layout_constraintTop_toBottomOf="@+id/edit_contact_add_dislike"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/edit_contact_save_button"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:background="@color/dark_primary"
+        android:text="@string/edit_contact_save_button"
+        android:textColor="@color/dark_secondary"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

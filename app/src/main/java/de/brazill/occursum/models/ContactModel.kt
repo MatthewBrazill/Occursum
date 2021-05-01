@@ -2,6 +2,7 @@ package de.brazill.occursum.models
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import java.util.*
 
 @Parcelize
 data class ContactModel(
@@ -11,5 +12,6 @@ data class ContactModel(
         var phone: String = "",
         var likes: MutableList<String> = listOf("").toMutableList(),
         var dislikes: MutableList<String> = listOf("").toMutableList(),
-        var img: Int = 0
-) : Parcelable
+        var img: Int = 0,
+        val id: String = UUID.randomUUID().toString()
+) : Parcelable {}

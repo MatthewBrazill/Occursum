@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CreateContactActivity">
+    tools:context=".activities.contact.CreateContactActivity">
 
     <ImageButton
         android:id="@+id/new_contact_add_img_button"
@@ -140,9 +140,11 @@
         android:inputType="textPersonName"
         android:singleLine="true"
         android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/new_contact_create_button"
         app:layout_constraintEnd_toStartOf="@+id/new_contact_add_bad_topic_info"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/likes" />
+        app:layout_constraintTop_toBottomOf="@+id/likes"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/new_contact_add_bad_topic_info"
@@ -167,7 +169,6 @@
 
     <Button
         android:id="@+id/new_contact_create_button"
-        style="@style/Widget.AppCompat.Button"
         android:layout_width="0dp"
         android:layout_height="75dp"
         android:background="@color/dark_primary"

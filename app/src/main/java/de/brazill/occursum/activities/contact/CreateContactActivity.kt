@@ -1,4 +1,4 @@
-package de.brazill.occursum.activities
+package de.brazill.occursum.activities.contact
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,11 +9,19 @@ import kotlinx.android.synthetic.main.activity_create_contact.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
+import java.util.*
 
-class CreateContactActivity: AppCompatActivity(), AnkoLogger {
+class CreateContactActivity : AppCompatActivity(), AnkoLogger {
 
     var contact = ContactModel()
     lateinit var app: MainApp
+
+    private fun String.toTitleCase(): String {
+        val regEx = "(^|\\s)\\w".toRegex()
+        return this.replace(regEx) {
+            it.value.toUpperCase(Locale.getDefault())
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +35,7 @@ class CreateContactActivity: AppCompatActivity(), AnkoLogger {
         }
         val likesList = mutableListOf<String>()
         new_contact_add_good_topic_button.setOnClickListener {
-            likesList.add(likes.text.toString())
+            likesList.add(likes.text.toString().toTitleCase())
             likes.text.clear()
         }
 
@@ -36,14 +44,14 @@ class CreateContactActivity: AppCompatActivity(), AnkoLogger {
         }
         val dislikesList = mutableListOf<String>()
         new_contact_add_bad_topic_button.setOnClickListener {
-            dislikesList.add(dislikes.text.toString())
+            dislikesList.add(dislikes.text.toString().toTitleCase())
             dislikes.text.clear()
         }
 
         //Create a event handler to handle the 'Create Contact' button
         new_contact_create_button.setOnClickListener {
-            contact.firstName = first_name.text.toString()
-            contact.lastName = last_name.text.toString()
+            contact.firstName = first_name.text.toString().toTitleCase()
+            contact.lastName = last_name.text.toString().toTitleCase()
             contact.email = email.text.toString()
             contact.phone = phone.text.toString()
             contact.likes = likesList

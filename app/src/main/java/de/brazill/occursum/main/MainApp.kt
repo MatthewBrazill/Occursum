@@ -3,13 +3,13 @@ package de.brazill.occursum.main
 import android.app.Application
 import de.brazill.occursum.R
 import de.brazill.occursum.models.ContactModel
-import de.brazill.occursum.models.ContactStorage
+import de.brazill.occursum.models.ContactStorageTemp
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 
 class MainApp: Application(), AnkoLogger {
 
-    val contacts = ContactStorage()
+    val contacts = ContactStorageTemp()
 
     override fun onCreate() {
         super.onCreate()

@@ -24,7 +24,7 @@
     <string name="edit_contact_title">Edit Contact</string>
     <string name="edit_contact_like_topic">Add Good Topic</string>
     <string name="edit_contact_dislike_topic">Add Bad Topic</string>
-    <string name="edit_contact_add_button">Edit Contact</string>
+    <string name="edit_contact_save_button">Save Contact</string>
 
     <!-- View Contact Strings -->
     <string name="view_contact_edit_button">Edit</string>

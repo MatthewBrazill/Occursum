@@ -1,16 +1,15 @@
-package de.brazill.occursum.activities
+package de.brazill.occursum.activities.contact
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import de.brazill.occursum.R
-import de.brazill.occursum.activities.editcontact.EditContactActivity
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
 import kotlinx.android.synthetic.main.activity_view_contact.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.error
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.toast
 
 class ViewContactActivity : AppCompatActivity(), AnkoLogger {
 
@@ -21,6 +20,7 @@ class ViewContactActivity : AppCompatActivity(), AnkoLogger {
         info("View Contact Started...")
 
         val contact = intent.extras?.getParcelable<ContactModel>("contact")!!
+        info(contact.id)
 
         setContentView(R.layout.activity_view_contact)
         app = application as MainApp
@@ -50,8 +50,12 @@ class ViewContactActivity : AppCompatActivity(), AnkoLogger {
         view_contact_dislikes.text = dislikes
 
         view_contact_delete_button.setOnClickListener {
-            app.contacts.delete(contact)
-            setResult(RESULT_OK)
+            if (!app.contacts.delete(contact)) {
+                toast("There was an error deleting you're contact.")
+                setResult(RESULT_CANCELED)
+            } else {
+                setResult(RESULT_OK)
+            }
             finish()
         }
 
