@@ -11,13 +11,10 @@ fun pickImage(parent: Activity, id: Int) {
 
 }
 
-fun getImageFromPath(context: Context, path: String): Bitmap {
-    if (path != "") {
-        val file = File(path)
-        if (file.exists()) {
-            return BitmapFactory.decodeFile(file.path)
-        }
+fun getImageFromPath(context: Context, path: String): Bitmap? {
+    val file = File(path)
+    if (file.exists()) {
+        return BitmapFactory.decodeFile(file.path)
     }
-    print(R.drawable.ic_default_avatar)
-    return BitmapFactory.decodeResource(context.resources, R.drawable.ic_default_avatar)
+    return null
 }

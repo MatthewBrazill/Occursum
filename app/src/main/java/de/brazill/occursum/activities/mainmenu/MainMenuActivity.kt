@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.activity_main_menu.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
-import java.util.*
 
 class MainMenuActivity : AppCompatActivity(), MainMenuListener, AnkoLogger {
 
@@ -31,12 +30,12 @@ class MainMenuActivity : AppCompatActivity(), MainMenuListener, AnkoLogger {
         contact_cards_recycler.adapter = MainMenuAdapter(app.contacts.findAll(), this)
 
         main_menu_add_contact_button.setOnClickListener {
-            startActivityForResult(intentFor<CreateContactActivity>(),0)
+            startActivityForResult(intentFor<CreateContactActivity>(), 0)
         }
     }
 
     override fun onCardClick(contact: ContactModel) {
-        startActivityForResult(intentFor<ViewContactActivity>().putExtra("contact", contact),0)
+        startActivityForResult(intentFor<ViewContactActivity>().putExtra("contact", contact), 0)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
