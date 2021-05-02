@@ -41,6 +41,6 @@ class MainMenuActivity : AppCompatActivity(), MainMenuListener, AnkoLogger {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        contact_cards_recycler.adapter!!.notifyDataSetChanged();
+        contact_cards_recycler.adapter!!.notifyDataSetChanged()
     }
 }
