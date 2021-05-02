@@ -14,6 +14,7 @@
         android:layout_marginTop="8dp"
         android:background="@color/dark_primary"
         android:contentDescription="@string/contact_image_description"
+        android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

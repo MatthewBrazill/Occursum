@@ -3,6 +3,7 @@ package de.brazill.occursum.activities.contact
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import de.brazill.occursum.R
+import de.brazill.occursum.helpers.*
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
 import kotlinx.android.synthetic.main.activity_view_contact.*
@@ -14,20 +15,18 @@ import org.jetbrains.anko.toast
 class ViewContactActivity : AppCompatActivity(), AnkoLogger {
 
     lateinit var app: MainApp
+    lateinit var contact: ContactModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        app = application as MainApp
+        contact = intent.extras?.getParcelable<ContactModel>("contact")!!
         info("View Contact Started...")
 
-        val contact = intent.extras?.getParcelable<ContactModel>("contact")!!
-        info(contact.id)
-
         setContentView(R.layout.activity_view_contact)
-        app = application as MainApp
 
         //Add the image to the view.
-        if (contact.img == 0)  view_contact_img.setImageResource(R.drawable.ic_default_avatar)
-        else view_contact_img.setImageResource(contact.img)
+        view_contact_img.setImageSafe(contact.img)
 
         //Concatenate the names and add them to the view.
         val fullName = "${contact.firstName} ${contact.lastName}"
@@ -60,7 +59,7 @@ class ViewContactActivity : AppCompatActivity(), AnkoLogger {
         }
 
         view_contact_edit_button.setOnClickListener {
-            startActivityForResult(intentFor<EditContactActivity>().putExtra("contact", contact), 1)
+            startActivityForResult(intentFor<EditContactActivity>().putExtra("contact", contact), 3)
             setResult(RESULT_OK)
             finish()
         }

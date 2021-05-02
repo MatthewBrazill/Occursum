@@ -1,9 +1,7 @@
 package de.brazill.occursum.main
 
 import android.app.Application
-import de.brazill.occursum.R
 import de.brazill.occursum.models.ContactInterface
-import de.brazill.occursum.models.ContactModel
 import de.brazill.occursum.models.ContactStorageJson
 import de.brazill.occursum.models.ContactStorageTemp
 import org.jetbrains.anko.AnkoLogger
