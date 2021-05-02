@@ -7,21 +7,30 @@ import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
 import de.brazill.occursum.helpers.*
 import kotlinx.android.synthetic.main.activity_create_contact.*
+import kotlinx.android.synthetic.main.activity_edit_contact.*
+import kotlinx.android.synthetic.main.contact_card.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
 
 class CreateContactActivity : AppCompatActivity(), AnkoLogger {
 
-    var contact = ContactModel()
     lateinit var app: MainApp
+    var contact = ContactModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        app = application as MainApp
         info("Create Contact Started...")
 
         setContentView(R.layout.activity_create_contact)
-        app = application as MainApp
+
+        //Set the image button
+        if (getImageFromPath(applicationContext, contact.img) != null) {
+            new_contact_add_img_button.setImageBitmap(getImageFromPath(applicationContext, contact.img))
+        } else {
+            new_contact_add_img_button.setImageResource(R.drawable.ic_default_avatar)
+        }
 
         new_contact_add_good_topic_info.setOnClickListener {
             toast("Use this field to add conversation topics to the list of good ice-breakers and small talk topics. You can use them to help remember what is and isn't safe to talk about with them.")

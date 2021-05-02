@@ -16,19 +16,18 @@ import org.jetbrains.anko.toast
 class ViewContactActivity : AppCompatActivity(), AnkoLogger {
 
     lateinit var app: MainApp
+    lateinit var contact: ContactModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        app = application as MainApp
+        contact = intent.extras?.getParcelable<ContactModel>("contact")!!
         info("View Contact Started...")
 
-        val contact = intent.extras?.getParcelable<ContactModel>("contact")!!
-        info(contact.id)
-
         setContentView(R.layout.activity_view_contact)
-        app = application as MainApp
 
         //Add the image to the view.
-        if (getImageFromPath(applicationContext, contact.img) == null) {
+        if (getImageFromPath(applicationContext, contact.img) != null) {
             view_contact_img.setImageBitmap(getImageFromPath(applicationContext, contact.img))
         } else {
             view_contact_img.setImageResource(R.drawable.ic_default_avatar)
@@ -65,7 +64,7 @@ class ViewContactActivity : AppCompatActivity(), AnkoLogger {
         }
 
         view_contact_edit_button.setOnClickListener {
-            startActivityForResult(intentFor<EditContactActivity>().putExtra("contact", contact), 1)
+            startActivityForResult(intentFor<EditContactActivity>().putExtra("contact", contact), 3)
             setResult(RESULT_OK)
             finish()
         }

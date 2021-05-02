@@ -16,23 +16,24 @@ import org.jetbrains.anko.toast
 class EditContactActivity : AppCompatActivity(), EditContactListener, AnkoLogger {
 
     lateinit var app: MainApp
+    lateinit var contact: ContactModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        app = application as MainApp
+        contact = intent.extras?.getParcelable("contact")!!
         info("Edit Contact Started...")
 
-        val contact = intent.extras?.getParcelable<ContactModel>("contact")!!
-        info(contact.id)
-
         setContentView(R.layout.activity_edit_contact)
-        app = application as MainApp
 
+        //Set the fields to the current values
         edit_contact_first_name.setText(contact.firstName)
         edit_contact_last_name.setText(contact.lastName)
         edit_contact_email.setText(contact.email)
         edit_contact_phone.setText(contact.phone)
 
-        if (getImageFromPath(applicationContext, contact.img) == null) {
+        //Set the image button to the current image
+        if (getImageFromPath(applicationContext, contact.img) != null) {
             edit_contact_edit_img_button.setImageBitmap(getImageFromPath(applicationContext, contact.img))
         } else {
             edit_contact_edit_img_button.setImageResource(R.drawable.ic_default_avatar)

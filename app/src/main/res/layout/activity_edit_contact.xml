@@ -14,8 +14,7 @@
         android:layout_marginTop="8dp"
         android:contentDescription="@string/contact_image_description"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_default_avatar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/edit_contact_title"
