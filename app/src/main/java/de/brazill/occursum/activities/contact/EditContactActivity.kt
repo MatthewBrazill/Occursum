@@ -1,14 +1,16 @@
 package de.brazill.occursum.activities.contact
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.brazill.occursum.R
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
 import de.brazill.occursum.helpers.*
 import kotlinx.android.synthetic.main.activity_edit_contact.*
-import kotlinx.android.synthetic.main.activity_view_contact.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
@@ -33,11 +35,9 @@ class EditContactActivity : AppCompatActivity(), EditContactListener, AnkoLogger
         edit_contact_phone.setText(contact.phone)
 
         //Set the image button to the current image
-        if (getImageFromPath(applicationContext, contact.img) != null) {
-            edit_contact_edit_img_button.setImageBitmap(getImageFromPath(applicationContext, contact.img))
-        } else {
-            edit_contact_edit_img_button.setImageResource(R.drawable.ic_default_avatar)
-        }
+        edit_contact_edit_img_button.setImageSafe(contact.img)
+
+
 
         val likeLayoutManager = LinearLayoutManager(this)
         likes_list_recycler.layoutManager = likeLayoutManager
@@ -47,11 +47,15 @@ class EditContactActivity : AppCompatActivity(), EditContactListener, AnkoLogger
         dislikes_list_recycler.layoutManager = dislikeLayoutManager
         dislikes_list_recycler.adapter = EditContactDislikeAdaptor(contact, this)
 
+        edit_contact_edit_img_button.setOnClickListener {
+            pickImage(this, 101)
+        }
+
         edit_contact_save_button.setOnClickListener {
             contact.firstName = edit_contact_first_name.text.toString().toTitleCase()
             contact.lastName = edit_contact_last_name.text.toString().toTitleCase()
-            contact.email = edit_contact_email.text.toString().toTitleCase()
-            contact.phone = edit_contact_phone.text.toString().toTitleCase()
+            contact.email = edit_contact_email.text.toString()
+            contact.phone = edit_contact_phone.text.toString()
 
             contact.likes = contact.likes
             contact.dislikes = contact.dislikes
@@ -94,5 +98,19 @@ class EditContactActivity : AppCompatActivity(), EditContactListener, AnkoLogger
     override fun onDislikeDeleteClick(contact: ContactModel, position: Int) {
         contact.dislikes.removeAt(position)
         dislikes_list_recycler.adapter!!.notifyItemRemoved(position)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        when (requestCode) {
+            101 /*Image button select an image.*/ -> {
+                if (data != null && resultCode == Activity.RESULT_OK) {
+                    contact.img = data.data.toString()
+                    edit_contact_edit_img_button.setImageSafe(contact.img)
+                    edit_contact_edit_img_button.refreshDrawableState()
+                }
+            }
+        }
     }
 }

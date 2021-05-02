@@ -36,11 +36,7 @@ class MainMenuAdapter constructor(
             itemView.contact_card_name.text = fullName
 
             //Add the image to the card.
-            if (getImageFromPath(itemView.context, contact.img) != null) {
-                itemView.contact_card_contact_image.setImageBitmap(getImageFromPath(itemView.context, contact.img))
-            } else {
-                itemView.contact_card_contact_image.setImageResource(R.drawable.ic_default_avatar)
-            }
+            itemView.contact_card_contact_image.setImageSafe(contact.img)
 
             //Create the well formatted 'likes' String to add to the interface.
             var likes = ""

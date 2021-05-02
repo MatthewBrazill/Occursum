@@ -7,7 +7,6 @@ import de.brazill.occursum.helpers.*
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
 import kotlinx.android.synthetic.main.activity_view_contact.*
-import kotlinx.android.synthetic.main.contact_card.view.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
@@ -27,11 +26,7 @@ class ViewContactActivity : AppCompatActivity(), AnkoLogger {
         setContentView(R.layout.activity_view_contact)
 
         //Add the image to the view.
-        if (getImageFromPath(applicationContext, contact.img) != null) {
-            view_contact_img.setImageBitmap(getImageFromPath(applicationContext, contact.img))
-        } else {
-            view_contact_img.setImageResource(R.drawable.ic_default_avatar)
-        }
+        view_contact_img.setImageSafe(contact.img)
 
         //Concatenate the names and add them to the view.
         val fullName = "${contact.firstName} ${contact.lastName}"
