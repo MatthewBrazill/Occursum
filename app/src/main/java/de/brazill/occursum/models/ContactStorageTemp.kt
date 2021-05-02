@@ -1,7 +1,6 @@
 package de.brazill.occursum.models
 
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 import kotlin.collections.ArrayList
 
 class ContactStorageTemp: ContactInterface, AnkoLogger {
