@@ -6,22 +6,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import de.brazill.occursum.R
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
+import de.brazill.occursum.helpers.*
 import kotlinx.android.synthetic.main.activity_edit_contact.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
-import java.util.*
 
 class EditContactActivity : AppCompatActivity(), EditContactListener, AnkoLogger {
 
     lateinit var app: MainApp
-
-    private fun String.toTitleCase(): String {
-        val regEx = "(^|\\s)\\w".toRegex()
-        return this.replace(regEx) {
-            it.value.toUpperCase(Locale.getDefault())
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +30,7 @@ class EditContactActivity : AppCompatActivity(), EditContactListener, AnkoLogger
         edit_contact_last_name.setText(contact.lastName)
         edit_contact_email.setText(contact.email)
         edit_contact_phone.setText(contact.phone)
+        edit_contact_edit_img_button.setImageBitmap(getImageFromPath(applicationContext, contact.img))
 
         val likeLayoutManager = LinearLayoutManager(this)
         likes_list_recycler.layoutManager = likeLayoutManager

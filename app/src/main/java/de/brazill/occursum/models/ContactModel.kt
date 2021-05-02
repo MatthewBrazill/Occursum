@@ -12,6 +12,6 @@ data class ContactModel(
         var phone: String = "",
         var likes: MutableList<String> = listOf("").toMutableList(),
         var dislikes: MutableList<String> = listOf("").toMutableList(),
-        var img: Int = 0,
+        var img: String = "",
         val id: String = UUID.randomUUID().toString()
 ) : Parcelable {}

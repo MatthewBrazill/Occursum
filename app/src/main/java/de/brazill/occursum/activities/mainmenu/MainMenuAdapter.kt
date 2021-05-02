@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import de.brazill.occursum.R
 import de.brazill.occursum.models.ContactModel
+import de.brazill.occursum.helpers.*
 import kotlinx.android.synthetic.main.contact_card.view.*
 
 class MainMenuAdapter constructor(
@@ -35,8 +36,7 @@ class MainMenuAdapter constructor(
             itemView.contact_card_name.text = fullName
 
             //Add the image to the card.
-            if (contact.img == 0)  itemView.contact_card_contact_image.setImageResource(R.drawable.ic_default_avatar)
-            else itemView.contact_card_contact_image.setImageResource(contact.img)
+            itemView.contact_card_contact_image.setImageBitmap(getImageFromPath(itemView.context, contact.img))
 
             //Create the well formatted 'likes' String to add to the interface.
             var likes = ""

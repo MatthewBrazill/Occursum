@@ -5,23 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import de.brazill.occursum.R
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
+import de.brazill.occursum.helpers.*
 import kotlinx.android.synthetic.main.activity_create_contact.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast
-import java.util.*
 
 class CreateContactActivity : AppCompatActivity(), AnkoLogger {
 
     var contact = ContactModel()
     lateinit var app: MainApp
-
-    private fun String.toTitleCase(): String {
-        val regEx = "(^|\\s)\\w".toRegex()
-        return this.replace(regEx) {
-            it.value.toUpperCase(Locale.getDefault())
-        }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
