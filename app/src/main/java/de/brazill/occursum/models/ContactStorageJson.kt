@@ -41,7 +41,7 @@ class ContactStorageJson(context: Context) : ContactInterface, AnkoLogger {
         return null
     }
 
-    override fun findAll(): List<ContactModel> {
+    override fun findAll(): MutableList<ContactModel> {
         return contacts
     }
 

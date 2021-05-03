@@ -5,20 +5,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import de.brazill.occursum.R
-import de.brazill.occursum.models.ContactModel
 import de.brazill.occursum.helpers.*
+import de.brazill.occursum.models.ContactModel
 import kotlinx.android.synthetic.main.contact_card.view.*
 
-class MainMenuAdapter constructor(
-        private var contacts: List<ContactModel>,
-        private val listener: MainMenuListener) : RecyclerView.Adapter<MainMenuAdapter.MainHolder>() {
+class MainMenuAdapter constructor(private var contacts: List<ContactModel>, private val listener: MainMenuListener) : RecyclerView.Adapter<MainMenuAdapter.MainHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
-                LayoutInflater.from(parent.context).inflate(
-                        R.layout.contact_card,
-                        parent,
-                        false
-                )
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.contact_card,
+                parent,
+                false
+            )
         )
     }
 

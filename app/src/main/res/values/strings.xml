@@ -4,6 +4,7 @@
 
     <!-- Main Menu Strings -->
     <string name="main_menu_title">Your Contacts</string>
+    <string name="main_menu_search_hint">Search Your Contacts Here</string>
 
     <!-- Contact Card Strings -->
     <string name="contact_card_likes">Good Topics:</string>
