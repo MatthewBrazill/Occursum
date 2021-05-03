@@ -3,10 +3,9 @@ package de.brazill.occursum.models
 import android.content.Context
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import org.jetbrains.anko.AnkoLogger
 import java.io.File
 
-class ContactStorageJson(context: Context) : ContactInterface, AnkoLogger {
+class ContactStorageJson(context: Context) : ContactInterface {
 
     private val gson = Gson()
     private val file = File("${context.dataDir}/files/contacts.json")
@@ -41,7 +40,7 @@ class ContactStorageJson(context: Context) : ContactInterface, AnkoLogger {
         return null
     }
 
-    override fun findAll(): List<ContactModel> {
+    override fun findAll(): MutableList<ContactModel> {
         return contacts
     }
 

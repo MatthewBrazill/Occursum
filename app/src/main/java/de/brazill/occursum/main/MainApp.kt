@@ -3,6 +3,7 @@ package de.brazill.occursum.main
 import android.app.Application
 import de.brazill.occursum.models.ContactInterface
 import de.brazill.occursum.models.ContactStorageJson
+import de.brazill.occursum.models.ContactStorageMongo
 import de.brazill.occursum.models.ContactStorageTemp
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -16,7 +17,8 @@ class MainApp: Application(), AnkoLogger {
         info("Main App Started...")
 
         //contacts = ContactStorageTemp()
-        contacts = ContactStorageJson(applicationContext)
+        //contacts = ContactStorageJson(applicationContext)
+        contacts = ContactStorageMongo()
 
         /*
         contacts.create(ContactModel("John", "Smith", "john@smith.com", "+353 83 549 7628", mutableListOf("Food", "Wine", "Cars"), mutableListOf("Mushrooms", "Bees"), R.drawable.ic_example_avatar_one))
