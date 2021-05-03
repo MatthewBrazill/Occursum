@@ -11,7 +11,7 @@ import org.jetbrains.anko.info
 class ContactStorageMongo: ContactInterface, AnkoLogger {
 
     private val user: String = "app"
-    private val key: String = "o7TLdhs2vKo74jWwhYi7IQvJfqb3kxO6"//R.string.mongodb_key.toString()
+    private val key: String = ""//R.string.mongodb_key.toString()
 
     private val uri: MongoClientURI = MongoClientURI("mongodb+srv://$user:$key@occursum-storage.6zijs.mongodb.net/contacts?retryWrites=true&w=majority")
     private var client: MongoClient = MongoClient(uri)
