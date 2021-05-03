@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="de.brazill.occursum">
 
-    <uses-permission android:name="android.permission.ACTION_OPEN_DOCUMENT" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
