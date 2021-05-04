@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Occursum</string>
+    <string name="select_image">Wähle ein Bild</string>
+    <string name="main_menu_title">Deine Kontakte</string>
+    <string name="main_menu_search_hint">Durchsuch deine Kontakte hier</string>
+    <string name="contact_card_likes">Gute Themen</string>
+    <string name="contact_card_dislikes">Schlechte Themen</string>
+    <string name="new_contact_title">Neuer Kontakt</string>
+    <string name="new_contact_first_name">Vorname</string>
+    <string name="new_contact_last_name">Nachname</string>
+    <string name="new_contact_email">E-Mail</string>
+    <string name="new_contact_job_title">Berufs Titel</string>
+    <string name="new_contact_phone_number">Telefon Nummer</string>
+    <string name="new_contact_add_topic">Thema Hinzufügen</string>
+    <string name="new_contact_like_topic">Gutes Thema Hinzufügen</string>
+    <string name="new_contact_dislike_topic">Schlechtes Thema Hinzufügen</string>
+    <string name="new_contact_add_button">Kontakt Erstellen</string>
+    <string name="edit_contact_title">Kontakt Bearbeiten</string>
+    <string name="edit_contact_like_topic">Gutes Thema Hinzufügen</string>
+    <string name="edit_contact_dislike_topic">Schlechtes Thema Hinzufügen</string>
+    <string name="edit_contact_save_button">Kontakt Speichern</string>
+    <string name="view_contact_edit_button">Bearbeiten</string>
+    <string name="view_contact_delete_button">Löschen</string>
+    <string name="view_contact_email_title">E-Mail:</string>
+    <string name="view_contact_phone_title">Telefon:</string>
+    <string name="view_contact_likes">Gutes Thema</string>
+    <string name="view_contact_dislikes">Schlechtes Thema</string>
+    <string name="contact_image_description">Bild von deinem Kontakt</string>
+    <string name="add_bad_topic_button_description">Knopf mit einem grünen Plus. Wird benutzt um ein schlechtes Thema hinzuzufügen.</string>
+    <string name="add_good_topic_button_description">Knopf mit einem grünen Plus. Wird benutzt um ein gutes Thema hinzuzufügen.</string>
+    <string name="topic_info_button_description">Knopf mit einem i in einem kreis. Wird benutzt um mehr details über das Themen Feature zu geben.</string>
+    <string name="refresh_button_description">Knopf mit einem kreisendem Pfeil. Wird benutzt um die Kontakte zu aktualisieren.</string>
+    <string name="add_contact_button_description">Knopf mit einem plus in einem kreis. Wird benutzt um einen neuen Kontakt hinzuzufügen.</string>
+</resources>

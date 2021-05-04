@@ -43,7 +43,8 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/new_contact_add_img_button"
-        app:layout_constraintTop_toBottomOf="@+id/new_contact_title" />
+        app:layout_constraintTop_toBottomOf="@+id/new_contact_title"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/last_name"
@@ -59,7 +60,8 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/new_contact_add_img_button"
-        app:layout_constraintTop_toBottomOf="@+id/first_name" />
+        app:layout_constraintTop_toBottomOf="@+id/first_name"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/email"
@@ -75,7 +77,8 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/new_contact_add_img_button" />
+        app:layout_constraintTop_toBottomOf="@+id/new_contact_add_img_button"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/phone"
@@ -91,7 +94,8 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/likes"
@@ -106,7 +110,8 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/new_contact_add_good_topic_info"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        app:layout_constraintTop_toBottomOf="@+id/phone"
+        android:importantForAutofill="no" />
 
     <ImageButton
         android:id="@+id/new_contact_add_good_topic_info"
@@ -144,7 +149,8 @@
         app:layout_constraintEnd_toStartOf="@+id/new_contact_add_bad_topic_info"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/likes"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:importantForAutofill="no" />
 
     <ImageButton
         android:id="@+id/new_contact_add_bad_topic_info"
