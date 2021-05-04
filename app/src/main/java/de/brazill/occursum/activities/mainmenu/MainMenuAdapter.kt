@@ -5,9 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import de.brazill.occursum.R
-import de.brazill.occursum.helpers.*
+import de.brazill.occursum.helpers.setImageSafe
 import de.brazill.occursum.models.ContactModel
-import kotlinx.android.synthetic.main.activity_main_menu.*
 import kotlinx.android.synthetic.main.contact_card.view.*
 import java.util.*
 

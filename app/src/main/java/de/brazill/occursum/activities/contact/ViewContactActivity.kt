@@ -3,7 +3,7 @@ package de.brazill.occursum.activities.contact
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import de.brazill.occursum.R
-import de.brazill.occursum.helpers.*
+import de.brazill.occursum.helpers.setImageSafe
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
 import kotlinx.android.synthetic.main.activity_view_contact.*

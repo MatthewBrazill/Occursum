@@ -8,18 +8,17 @@ import de.brazill.occursum.R
 import de.brazill.occursum.models.ContactModel
 import kotlinx.android.synthetic.main.conversation_topic.view.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 
-class EditContactDislikeAdaptor constructor(
-        private var contact: ContactModel,
-        private val listener: EditContactListener) : RecyclerView.Adapter<EditContactDislikeAdaptor.ViewContactDislikesHolder>() {
+class EditContactDislikeAdaptor constructor(private var contact: ContactModel, private val listener: EditContactListener) :
+    RecyclerView.Adapter<EditContactDislikeAdaptor.ViewContactDislikesHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewContactDislikesHolder {
         return ViewContactDislikesHolder(
-                LayoutInflater.from(parent.context).inflate(
-                        R.layout.conversation_topic,
-                        parent,
-                        false
-                )
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.conversation_topic,
+                parent,
+                false
+            )
         )
     }
 

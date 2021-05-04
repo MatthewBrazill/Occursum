@@ -7,7 +7,6 @@ import android.net.Uri
 import android.widget.ImageButton
 import android.widget.ImageView
 import de.brazill.occursum.R
-import java.lang.Exception
 
 fun pickImage(parent: Activity, id: Int) {
     val intent = Intent()

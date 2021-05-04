@@ -8,18 +8,17 @@ import de.brazill.occursum.R
 import de.brazill.occursum.models.ContactModel
 import kotlinx.android.synthetic.main.conversation_topic.view.*
 import org.jetbrains.anko.AnkoLogger
-import org.jetbrains.anko.info
 
-class EditContactLikeAdaptor constructor(
-        private var contact: ContactModel,
-        private val listener: EditContactListener) : RecyclerView.Adapter<EditContactLikeAdaptor.ViewContactLikesHolder>() {
+class EditContactLikeAdaptor constructor(private var contact: ContactModel, private val listener: EditContactListener) :
+    RecyclerView.Adapter<EditContactLikeAdaptor.ViewContactLikesHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewContactLikesHolder {
         return ViewContactLikesHolder(
-                LayoutInflater.from(parent.context).inflate(
-                        R.layout.conversation_topic,
-                        parent,
-                        false
-                )
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.conversation_topic,
+                parent,
+                false
+            )
         )
     }
 

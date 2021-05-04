@@ -4,12 +4,13 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.brazill.occursum.R
+import de.brazill.occursum.helpers.pickImage
+import de.brazill.occursum.helpers.setImageSafe
+import de.brazill.occursum.helpers.toTitleCase
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
-import de.brazill.occursum.helpers.*
 import kotlinx.android.synthetic.main.activity_edit_contact.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -37,8 +38,7 @@ class EditContactActivity : AppCompatActivity(), EditContactListener, AnkoLogger
         //Set the image button to the current image
         edit_contact_edit_img_button.setImageSafe(contact.img)
 
-
-
+        //Set up the like and dislike recyclers
         val likeLayoutManager = LinearLayoutManager(this)
         likes_list_recycler.layoutManager = likeLayoutManager
         likes_list_recycler.adapter = EditContactLikeAdaptor(contact, this)

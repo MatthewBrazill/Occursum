@@ -5,11 +5,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import de.brazill.occursum.R
+import de.brazill.occursum.helpers.pickImage
+import de.brazill.occursum.helpers.setImageSafe
+import de.brazill.occursum.helpers.toTitleCase
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
-import de.brazill.occursum.helpers.*
 import kotlinx.android.synthetic.main.activity_create_contact.*
-import kotlinx.android.synthetic.main.activity_edit_contact.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.toast

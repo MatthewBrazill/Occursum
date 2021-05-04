@@ -46,7 +46,7 @@ class ContactStorageFirebase : ContactInterface, AnkoLogger {
     }
 
     private fun saveFirestore() {
-        contacts.forEach { contact -> runBlocking {db.collection("contacts").document(contact.id).set(contact)}}
+        contacts.forEach { contact -> runBlocking { db.collection("contacts").document(contact.id).set(contact) } }
     }
 
     override fun create(contact: ContactModel): Boolean {

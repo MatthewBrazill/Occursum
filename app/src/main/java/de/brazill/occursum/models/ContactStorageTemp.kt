@@ -1,9 +1,8 @@
 package de.brazill.occursum.models
 
 import org.jetbrains.anko.AnkoLogger
-import kotlin.collections.ArrayList
 
-class ContactStorageTemp: ContactInterface, AnkoLogger {
+class ContactStorageTemp : ContactInterface, AnkoLogger {
 
     private val contacts = ArrayList<ContactModel>()
 

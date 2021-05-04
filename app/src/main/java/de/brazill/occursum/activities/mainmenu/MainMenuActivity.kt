@@ -10,12 +10,10 @@ import de.brazill.occursum.activities.contact.CreateContactActivity
 import de.brazill.occursum.activities.contact.ViewContactActivity
 import de.brazill.occursum.main.MainApp
 import de.brazill.occursum.models.ContactModel
-import kotlinx.android.synthetic.main.activity_create_contact.view.*
 import kotlinx.android.synthetic.main.activity_main_menu.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
-import java.util.*
 
 class MainMenuActivity : AppCompatActivity(), MainMenuListener, AnkoLogger, SearchView.OnQueryTextListener {
 
