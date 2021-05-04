@@ -16,11 +16,11 @@ import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
 import org.jetbrains.anko.intentFor
 import java.util.*
-import java.util.Locale.filter
 
 class MainMenuActivity : AppCompatActivity(), MainMenuListener, AnkoLogger, SearchView.OnQueryTextListener {
 
     lateinit var app: MainApp
+    private lateinit var adapter: MainMenuAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +30,9 @@ class MainMenuActivity : AppCompatActivity(), MainMenuListener, AnkoLogger, Sear
         setContentView(R.layout.activity_main_menu)
 
         val layoutManager = LinearLayoutManager(this)
+        adapter = MainMenuAdapter(app.contacts.findAll(), this)
         contact_cards_recycler.layoutManager = layoutManager
-        contact_cards_recycler.adapter = MainMenuAdapter(app.contacts.findAll(), this)
+        contact_cards_recycler.adapter = adapter
 
         main_menu_add_contact_button.setOnClickListener {
             startActivityForResult(intentFor<CreateContactActivity>(), 1)
@@ -45,19 +46,11 @@ class MainMenuActivity : AppCompatActivity(), MainMenuListener, AnkoLogger, Sear
     }
 
     override fun onQueryTextChange(query: String): Boolean {
-        val inserts: MutableList<ContactModel> = emptyList<ContactModel>().toMutableList()
         if (query.isBlank()) {
-            inserts.addAll(app.contacts.findAll())
+            adapter.clearFilter()
         } else {
-            for (contact in app.contacts.findAll()) {
-                val name = "${contact.firstName} ${contact.lastName}".toLowerCase(Locale.getDefault())
-                if (query.toLowerCase(Locale.getDefault()) in name) {
-                    inserts.add(contact)
-                }
-            }
+            adapter.setFilter(query)
         }
-        contact_cards_recycler.adapter = MainMenuAdapter(inserts, this)
-        //contact_cards_recycler.adapter!!.notifyDataSetChanged()
         contact_cards_recycler.scrollToPosition(0)
         return true
     }

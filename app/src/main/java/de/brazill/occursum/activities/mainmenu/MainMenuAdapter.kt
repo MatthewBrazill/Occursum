@@ -7,31 +7,53 @@ import androidx.recyclerview.widget.RecyclerView
 import de.brazill.occursum.R
 import de.brazill.occursum.helpers.*
 import de.brazill.occursum.models.ContactModel
+import kotlinx.android.synthetic.main.activity_main_menu.*
 import kotlinx.android.synthetic.main.contact_card.view.*
+import java.util.*
 
 class MainMenuAdapter constructor(private var contacts: List<ContactModel>, private val listener: MainMenuListener) : RecyclerView.Adapter<MainMenuAdapter.MainHolder>() {
 
+    var filterList = emptyList<ContactModel>().toMutableList()
+    var filterActive = false
+
+    fun setFilter(query: String) {
+        filterList = emptyList<ContactModel>().toMutableList()
+        filterActive = true
+        for (contact in contacts) {
+            val name = "${contact.firstName} ${contact.lastName}".toLowerCase(Locale.getDefault())
+            if (query.toLowerCase(Locale.getDefault()) in name) {
+                filterList.add(contact)
+            }
+        }
+        notifyDataSetChanged()
+    }
+
+    fun clearFilter() {
+        filterActive = false
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
         return MainHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.contact_card,
-                parent,
-                false
-            )
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.contact_card, parent, false)
         )
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val contact = contacts[holder.adapterPosition]
-        holder.bind(contact, listener)
+        if (!filterActive) holder.bind(contacts[holder.adapterPosition], listener)
+        else holder.bind(filterList[holder.adapterPosition], listener)
     }
 
-    override fun getItemCount(): Int = contacts.size
+    override fun getItemCount(): Int {
+        return if (!filterActive) contacts.size
+        else filterList.size
+    }
 
     class MainHolder constructor(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(contact: ContactModel, listener: MainMenuListener) {
             //Merge the names before assignment.
-            val fullName = contact.firstName + " " + contact.lastName
+            val fullName = "${contact.firstName} ${contact.lastName}"
             itemView.contact_card_name.text = fullName
 
             //Add the image to the card.
@@ -39,7 +61,9 @@ class MainMenuAdapter constructor(private var contacts: List<ContactModel>, priv
 
             //Create the well formatted 'likes' String to add to the interface.
             var likes = ""
-            for (like in contact.likes) likes += "- $like\n"
+            if (contact.likes.isNotEmpty()) {
+                for (like in contact.likes) likes += "- $like\n"
+            }
             itemView.contact_card_likes_list.text = likes
 
             //Create the well formatted 'dislikes' String.
