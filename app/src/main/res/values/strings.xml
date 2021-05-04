@@ -38,6 +38,7 @@
 
     <!-- Accessibility Strings -->
     <string name="add_contact_button_description">Button to add a new contact.</string>
+    <string name="refresh_button_description">Button to refresh the contact list.</string>
     <string name="topic_info_button_description">Button to see more detailed information about the "topics" feature.</string>
     <string name="contact_image_description">Image of the contact.</string>
 </resources>
