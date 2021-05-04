@@ -32,6 +32,11 @@ class MainMenuActivity : AppCompatActivity(), MainMenuListener, AnkoLogger {
         main_menu_add_contact_button.setOnClickListener {
             startActivityForResult(intentFor<CreateContactActivity>(), 1)
         }
+
+        main_menu_refresh_button.setOnClickListener {
+            MainMenuAdapter(app.contacts.findAll(), this)
+            contact_cards_recycler.adapter!!.notifyDataSetChanged()
+        }
     }
 
     override fun onCardClick(contact: ContactModel) {
